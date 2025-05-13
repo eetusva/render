@@ -10,7 +10,7 @@ const nimi = process.argv[3]
 const numero = process.argv[4]
 
 const url =
-    `mongodb+srv://eetusva:${password}@fso2025.b68e4.mongodb.net/puhelinApp?retryWrites=true&w=majority&appName=FSO2025`
+    `mongodb+srv://reinosva:<db_password>@cluster0.fzshbvt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
 
 mongoose.set('strictQuery', false)
 mongoose.connect(url)
