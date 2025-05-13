@@ -1,0 +1,42 @@
+{
+  "name": "puhelinluettelo-backend",
+  "version": "0.0.1",
+  "description": "Fullstackopen osan3 - puhelinluettelo-tehtävän backend",
+  "keywords": [
+    "puhelinluettelo"
+  ],
+  "homepage": "https://github.com/eetusva/render#readme",
+  "bugs": {
+    "url": "https://github.com/eetusva/render/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eetusva/render.git"
+  },
+  "license": "ISC",
+  "author": "Eetusva",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "build:ui": "rm -rf dist && cd ../osa2testi && npm run build && cp -r dist ../helloworld",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.11.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@stylistic/eslint-plugin-js": "^4.2.0",
+    "eslint": "^9.22.0",
+    "globals": "^16.0.0",
+    "nodemon": "^3.1.9"
+  }
+}

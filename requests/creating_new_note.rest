@@ -1,0 +1,7 @@
+POST https://puhelinluettelo-fso25.onrender.com/api/persons
+Content-Type: application/json
+
+{
+    "name": "Otto Keimola",
+    "number": "0445664321"
+}
