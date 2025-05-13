@@ -5,7 +5,7 @@ if (process.argv.length<3) {
   process.exit(1)
 }
 
-const password = process.argv[2]
+const password = process.env.MONGO_PW
 const nimi = process.argv[3]
 const numero = process.argv[4]
 
