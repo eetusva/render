@@ -1,21 +1,11 @@
 const mongoose = require('mongoose')
 
-if (process.argv.length !== 3 && process.argv.length !== 5) {
-  console.log(
-    `Usage:
-    "node mongo.js <password>" lists all persons in the phonebook
-    "node mongo.js <password> <name> <number>" adds a new person to the phonebook
-    `)
-  process.exit(1)
-}
-
-const password = process.argv[2]
-const url = `mongodb+srv://<eetusva>:<TTav0ycm6eEBWtKS@cluster0.rkq2aqw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+const password = process.env.MONGO_PW
+const url = `mongodb+srv://eetusva:${TTav0ycm6eEBWtKS}@cluster0.rkq2aqw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
 
 mongoose.set('strictQuery', false)
 mongoose.connect(url)
-  .then(() => {
-  })
+  .then(() => {})
   .catch((err) => {
     console.log('Error connecting to MongoDB:', err.message)
     process.exit(1)
@@ -29,21 +19,17 @@ const personSchema = new mongoose.Schema({
 const Person = mongoose.model('Person', personSchema)
 
 if (process.argv.length === 3) {
-
   Person.find({}).then(result => {
     console.log('Phonebook:')
     if (result.length === 0) {
       console.log('No entries found')
-      mongoose.connection.close()
     }
     result.forEach(person => {
       console.log(`${person.name} ${person.number}`)
     })
     mongoose.connection.close()
   })
-
-} else {
-
+} else if (process.argv.length === 5) {
   const person = new Person({
     name: process.argv[3],
     number: process.argv[4],
@@ -53,5 +39,12 @@ if (process.argv.length === 3) {
     console.log('Person saved:', result.name, result.number)
     mongoose.connection.close()
   })
-
+} else {
+  console.log(
+    `Usage:
+    "node mongo.js <password>" lists all persons in the phonebook
+    "node mongo.js <password> <name> <number>" adds a new person to the phonebook
+    `
+  )
+  process.exit(1)
 }
