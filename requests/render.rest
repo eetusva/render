@@ -1,0 +1,54 @@
+#
+# Render requests
+#
+
+# Invalid endpoint, returns 404
+GET https://fullstackopen-harjoitukset-osa3.onrender.com/api/cats
+
+###
+
+# List all persons in the database
+GET https://fullstackopen-harjoitukset-osa3.onrender.com/api/persons
+
+###
+
+# List a specific person in the database
+#   200 - OK if the ID is valid (24-character MongoDB ObjectId) and the person exists
+#   400 - Bad Request if the ID is invalid
+#   404 - Not Found if the ID is valid but the person does not exist
+GET https://fullstackopen-harjoitukset-osa3.onrender.com/api/persons/67e7e5c9816f0891aa6d1fbc
+
+###
+
+# Add a person
+#   201 - Created if the person is added successfully
+#   400 - Bad Request if the request body, name or number is missing
+POST https://fullstackopen-harjoitukset-osa3.onrender.com/api/persons
+Content-Type: application/json
+
+{
+  "name": "abc5",
+  "number": "123-1234"
+}
+
+###
+
+# Deletes a specific person from the database
+#   204 - No Content if the person is deleted successfully
+#   400 - Bad Request if the ID is invalid
+#   404 - Not Found if the ID is valid but the person does not exist
+DELETE https://fullstackopen-harjoitukset-osa3.onrender.com/api/persons/67ec09f2be4ea3074532bcd1
+
+###
+
+# Updates the phone number of a specific person in the database
+#   200 - OK if the person is updated successfully
+#   400 - Bad Request if the ID is invalid or the request body, name or number is missing
+#   404 - Not Found if the ID is valid but the person does not exist
+PUT https://fullstackopen-harjoitukset-osa3.onrender.com/api/persons/67e7e5c9816f0891aa6d1fbc
+Content-Type: application/json
+
+{
+  "name": "ghi2",
+  "number": "666-6667"
+}

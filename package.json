@@ -1,0 +1,37 @@
+{
+  "name": "puhelinluettelo-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ui": "rm -rf dist && cd ../fullstackopen-harjoitukset/osa2/puhelinluettelo && npm run build && cp -r dist ../../../fullstackopen-harjoitukset-osa33/",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eetusva/render.git"
+  },
+  "author": "Eetusva",
+  "license": "ISC: {
+  "homepage": "https://github.com/eetusva/render#readme",
+  },
+  "homepage": "https://github.com/eetusva/render/issues",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.11.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@stylistic/eslint-plugin-js": "^4.2.0",
+    "eslint": "^9.23.0",
+    "globals": "^16.0.0",
+    "nodemon": "^3.1.9"
+  }
+}

@@ -1,0 +1,54 @@
+#
+# DEV server requests
+#
+
+# Invalid endpoint, returns 404
+GET http://127.0.0.1:3001/api/cats
+
+###
+
+# List all persons in the database
+GET http://127.0.0.1:3001/api/persons
+
+###
+
+# List a specific person in the database
+#   200 - OK if the ID is valid (24-character MongoDB ObjectId) and the person exists
+#   400 - Bad Request if the ID is invalid
+#   404 - Not Found if the ID is valid but the person does not exist
+GET http://127.0.0.1:3001/api/persons/67eae9ac7dcbfaa8d2c3fb39
+
+###
+
+# Add a person
+#   201 - Created if the person is added successfully
+#   400 - Bad Request if the request body, name or number is missing
+POST http://127.0.0.1:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "abc4",
+  "number": "123-123-4"
+}
+
+###
+
+# Deletes a specific person from the database
+#   204 - No Content if the person is deleted successfully
+#   400 - Bad Request if the ID is invalid
+#   404 - Not Found if the ID is valid but the person does not exist
+DELETE http://127.0.0.1:3001/api/persons/67eae9ac7dcbfaa8d2c3fb39
+
+###
+
+# Updates the phone number of a specific person in the database
+#   200 - OK if the person is updated successfully
+#   400 - Bad Request if the ID is invalid or the request body, name or number is missing
+#   404 - Not Found if the ID is valid but the person does not exist
+PUT http://127.0.0.1:3001/api/persons/67e7e5c9816f0891aa6d1fbc
+Content-Type: application/json
+
+{
+  "name": "ghi2",
+  "number": "666"
+}
