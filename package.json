@@ -15,10 +15,8 @@
     "url": "git+https://github.com/eetusva/render.git"
   },
   "author": "Eetusva",
-  "license": "ISC: {
+  "license": "ISC",
   "homepage": "https://github.com/eetusva/render#readme",
-  },
-  "homepage": "https://github.com/eetusva/render/issues",
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
